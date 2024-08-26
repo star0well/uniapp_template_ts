@@ -1,41 +1,33 @@
 <template>
   <view class="content">
-    <image class="logo" src="/static/logo.png" />
-    <view class="text-area">
-      <text class="title">{{ title }}</text>
+    <view class="test bg-red">
+      <span text-md c-blue> {{ count }}</span>
+      <text>54</text>
+      <div @click="store.increment">{{ t("about") }}</div>
+      <div @click="changeLanguage">{{ t("change") }}</div>
     </view>
   </view>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const title = ref('Hello')
+import { useUserStore } from "@/store/userStore/userStore";
+import { storeToRefs } from "pinia";
+import { loadLanguageAsync } from "@/i18n/i18n";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
+function changeLanguage() {
+  const locale = uni.getLocale();
+  console.log(locale);
+
+  loadLanguageAsync("en");
+}
+const store = useUserStore();
+const { count } = storeToRefs(store);
 </script>
 
 <style>
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo {
-  height: 200rpx;
-  width: 200rpx;
-  margin-top: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50rpx;
-}
-
-.text-area {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
+.test {
+  --uno: w-375;
 }
 </style>
