@@ -1,16 +1,39 @@
 {
-	"pages": [
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
-		}
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	}
+  "pages": [
+    {
+      "path": "pages/class/class",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/feedback/feedback",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/my/my",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#9B9B9B",
+    "selectedColor": "#1F1E23",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      { "pagePath": "pages/class/class", "text": "course" },
+      { "pagePath": "pages/feedback/feedback", "text": "feedback" },
+      { "pagePath": "pages/my/my", "text": "my" }
+    ]
+  }
 }

@@ -7,11 +7,11 @@ const i18n = createI18n({
 });
 
 const localesMap = Object.fromEntries(
-  Object.entries(import.meta.glob("./locales/*.json")).map(
-    ([path, loadLocale]) => [path.match(/([\w-]*)\.json$/)?.[1], loadLocale]
-  )
+  Object.entries(import.meta.glob("./locales/*.json")).map(([path, loadLocale]) => [
+    path.match(/([\w-]*)\.json$/)?.[1],
+    loadLocale,
+  ]),
 ) as Record<Locale, () => Promise<{ default: Record<string, string> }>>;
-console.log(localesMap);
 
 export const availableLocales = Object.keys(localesMap);
 
@@ -19,8 +19,7 @@ const loadedLanguages: string[] = [];
 
 function setI18nLanguage(lang: Locale) {
   i18n.global.locale.value = lang as any;
-  if (typeof document !== "undefined")
-    document.querySelector("html")?.setAttribute("lang", lang);
+  if (typeof document !== "undefined") document.querySelector("html")?.setAttribute("lang", lang);
   return lang;
 }
 
