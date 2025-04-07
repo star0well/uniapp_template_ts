@@ -6,3 +6,6 @@ export function loginApi() {
 export function loginApi2() {
   return requestCtx.get({ url: "/2", data: {}, showLoading: true });
 }
+export function loginApi3() {
+  return requestCtx.get({ url: "/3", data: {}, showLoading: true });
+}
